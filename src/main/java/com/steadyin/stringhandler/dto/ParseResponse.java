@@ -5,6 +5,11 @@ import lombok.RequiredArgsConstructor;
 //response -> 몫, 나머지
 @RequiredArgsConstructor
 public class ParseResponse {
-   private final String quotient;
-   private final String remainder;
-} 
+    private final String quotient;
+    private final String remainder;
+
+    public ParseResponse(OutputUnit outputUnit) {
+        this.quotient = outputUnit.getQuotient();
+        this.remainder = outputUnit.getRemainder();
+    }
+}
