@@ -9,9 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ParseService {
+
     private final UrlConnector urlConnector;
+
     public ParseResponse parse(ParseRequest request) {
-        System.out.println(urlConnector.getHtml("https://naver.com"));
+        final String html = urlConnector.getHtml(request.getUrl());
+        final String exposedHtml = request.getExposureType().getExposedHtml(html);
+
         return null;
     }
 }
