@@ -1,5 +1,6 @@
 package com.steadyin.stringhandler.service;
 
+import com.steadyin.stringhandler.dto.OutputUnit;
 import com.steadyin.stringhandler.dto.ParseRequest;
 import com.steadyin.stringhandler.dto.ParseResponse;
 import com.steadyin.stringhandler.util.Arranger;
@@ -24,6 +25,7 @@ public class ParseService {
         final String exposedHtml = request.getExposureType().getExposedHtml(html);
         final Arranger rearrange = arranger.rearrange(exposedHtml);
         final String interleaveText = interleaver.interleave(rearrange);
+        final OutputUnit outputUnit = new OutputUnit(interleaveText, request.getUnitCount());
 
         return null;
     }
