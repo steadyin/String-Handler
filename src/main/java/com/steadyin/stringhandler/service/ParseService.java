@@ -12,12 +12,13 @@ import org.springframework.stereotype.Service;
 public class ParseService {
 
     private final UrlConnector urlConnector;
+
     private final Separator separator;
 
     public ParseResponse parse(ParseRequest request) {
         final String html = urlConnector.getHtml(request.getUrl());
         final String exposedHtml = request.getExposureType().getExposedHtml(html);
-        final Separator separate = separator.separate(exposedHtml);
+        final Separator separator1 = separator.separate(exposedHtml);
 
         return null;
     }
